@@ -1,0 +1,9 @@
+.low, .high {
+  background-color: red;
+  width: 100px;
+}
+
+.correct {
+  background-color: green;
+  width: 100px;
+}

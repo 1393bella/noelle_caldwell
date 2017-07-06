@@ -1,0 +1,9 @@
+#chatboard {
+  width: 500px;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+#message {
+  width: 500px;
+}

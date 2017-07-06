@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="style.css">
+<h1>Welcome to the Great Number Game!</h1>
+<h3>I am thinking of a number between 1 and 100</h3>
+<h3>Take a guess!</h3>
+<div class="<%= status %>">
+  <% if (status == "correct") { %>
+  <p>you got it!</p>
+  <form action="/reset" method="post">
+    <input type="submit" value="Play again">
+  </form>
+  <% } else { %>
+    <% if (status != "none") { %>
+    <p>too <%= status %></p>
+    <% } %>
+</div>
+
+<form action="/guess" method="post">
+  <input type="text" name="guessValue">
+  <input type="submit" value="Submit">
+</form>
+<% } %>

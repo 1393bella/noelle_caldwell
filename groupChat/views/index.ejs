@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chatroom</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Conversation Board</h1>
+    <div id="chatboard"></div>
+    <br>
+    <input type="text" id="message">
+    <button type="button" id="send">Send</button>
+  </body>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      let socket = io.connect();
+      //user connects
+      socket.on('connect', function() {
+        let username = prompt("Your name:");
+        if (username != null) {
+          socket.emit("new_user", {user: username});
+        }
+      });
+      //user sees existing board on connection
+      socket.on('showBoard', function(data) {
+        for (let m in data.messages) {
+          //loop through messages and display all
+          let p = document.createElement('p');
+          p.innerHTML = data.messages[m].user + ": " + data.messages[m].message;
+          document.getElementById('chatboard').appendChild(p);
+        }
+      });
+
+      //user submits a message
+      $('#send').click(function() {
+        socket.emit('new_message', { message: $('#message').val() });
+        $('#message').val('');
+      });
+      //new message added
+      socket.on('add_message', function(data) {
+        let m = document.createElement('p');
+        m.innerHTML = data.message.user + ": " + data.message.message;
+        document.getElementById('chatboard').appendChild(m);
+      })
+    });
+  </script>
+</html>
