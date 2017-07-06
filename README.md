@@ -8,5 +8,5 @@ Assignments completed in the MEAN stack (July 2017)
   * Math Module
 * Express
   * Great Number Game
-*Socket.io
+* Socket.io
   * Group Chat
