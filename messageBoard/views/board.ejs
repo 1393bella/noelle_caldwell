@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Message Board</title>
+    <style media="screen">
+      .comment {
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>The Dojo Message Board</h1>
+    <hr>
+    <form action="/messages" method="post">
+      Name: <input type="text" name="name"><br>
+      Message: <textarea name="msg" rows="8" cols="40"></textarea><br>
+      <input type="submit" value="Post Message">
+    </form>
+    <hr>
+    <% if (typeof(err) != 'undefined') { %>
+    <p><%= err %></p>
+    <% } else if (typeof(messages) != 'undefined') { %>
+      <% for (let m in messages) { %>
+        <h3>Name: <%= messages[m].name %></h3>
+        <h4>Message: <%= messages[m].content %></h4>
+        <% for (let i = 0; i < messages[m].comments.length; i++) { %>
+          <p class="comment">Name: <%= messages[m].comments[i].name %></p>
+          <p class="comment">Comment: <%= messages[m].comments[i].content %></p>
+        <% } %>
+        <% if (typeof(cerr) != 'undefined') { %>
+        <p><%= cerr %></p>
+        <% } %>
+          <form class="" action="/comments" method="post">
+            <p class="comment">Name: <input type="text" name="cname"></p>
+            <p class="comment">Comment: <textarea name="cmt" rows="8" cols="30"></textarea></p>
+            <input type="hidden" name="msgId" value="<%= messages[m]._id %>">
+            <input type="submit" value="Post Comment">
+          </form>
+      <% } %>
+    <% } %>
+  </body>
+</html>

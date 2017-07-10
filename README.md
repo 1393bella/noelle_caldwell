@@ -10,3 +10,5 @@ Assignments completed in the MEAN stack (July 2017)
   * Great Number Game
 * Socket.io
   * Group Chat
+* MongoDB
+  * Message Board
