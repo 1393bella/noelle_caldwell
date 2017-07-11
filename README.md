@@ -14,3 +14,6 @@ Assignments completed in the MEAN stack (July 2017)
   * Message Board
   * 1955 API
   * Login/Registration
+* Angular
+  * Dojo Mail
+  * Retro Barcode Generator
