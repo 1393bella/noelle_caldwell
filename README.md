@@ -13,3 +13,4 @@ Assignments completed in the MEAN stack (July 2017)
 * MongoDB
   * Message Board
   * 1955 API
+  * Login/Registration
