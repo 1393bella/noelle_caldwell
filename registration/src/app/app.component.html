@@ -1,0 +1,118 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>{{title}}</h1>
+  <div id="wrapper">
+  <div [hidden]="!isSuccessful" class="success">Thank you for registering with us {{user.first_name}}. 
+    We just sent you a confirmation email at {{user.email}}, and we will send all mail to {{user.street}}, {{user.city}}, {{user.state}}.
+    <p>Have a wonderful day!</p>
+  </div>
+  <div class="form-wrapper">
+    <h2>Account Information</h2>
+    <form #userForm="ngForm" (submit)="onSubmit()">
+      
+      <div class="form-group">
+        <div class="col-sm-3"><label>*First Name:</label></div>
+        <div class="col-sm-4">
+          <input type="text" name="fname" required [(ngModel)]="user.first_name" #firstName="ngModel" class="form-control">
+        </div>
+        <div class="col-sm-5 error" *ngIf='!firstName.valid && (firstName.dirty || firstName.touched)'>First name is required</div>
+      </div>
+
+      <br><br>
+
+      <div class="form-group">
+        <div class="col-sm-3"><label>*Last Name:</label></div>
+        <div class="col-sm-4">
+          <input type="text" name="lname" required [(ngModel)]="user.last_name" #lastName="ngModel" class="form-control">
+        </div>
+        <div class="col-sm-5 error" *ngIf='!lastName.valid && (lastName.dirty || lastName.touched)'>Last name is required</div>
+      </div>
+      
+      <br><br>
+      
+      <div class="form-group">
+        <div class="col-sm-3"><label>*Email:</label></div>
+        <div class="col-sm-4">
+          <input type="email" name="email" required pattern="^([A-Za-z0-9._\-]+)@([a-zA-Z0-9._\-]+)\.([a-zA-Z]+)$" [(ngModel)]="user.email" #email="ngModel" class="form-control">
+        </div>
+        <div class="col-sm-5 error" *ngIf='!email.valid && (email.dirty || email.touched)'>Email is not valid</div>
+      </div>
+      
+      <br><br>
+      
+      <div class="form-group">
+        <div class="col-sm-3"><label>*Password:</label></div>
+        <div class="col-sm-4">
+          <input type="password" name="password" required [(ngModel)]="user.password" #password="ngModel" minlength="16" class="form-control">
+        </div>
+      <div class="col-sm-5 error" *ngIf='!password.valid && (password.dirty || password.touched)'>Password must be at least 16 characters long</div>
+      </div>
+      
+      <br><br>
+      
+      <div class="form-group">
+        <div class="col-sm-3"><label>*Confirm Password:</label></div>
+        <div class="col-sm-4">
+          <input type="password" name="confirmPassword" [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel" validateEqual="password" class="form-control">
+        </div>
+          <div class="col-sm-5 error" *ngIf='!confirmPassword.valid && (confirmPassword.dirty || confirmPassword.touched)'>Passwords do not match</div>
+      </div>
+      
+      <br><br>
+      
+      <div class="form-group">
+        <div class="col-sm-3"><label>*Street Address:</label></div>
+        <div class="col-sm-4">
+          <input type="text" name="street" required [(ngModel)]="user.street" #street="ngModel" class="form-control">  
+        </div>
+        <div class="col-sm-5 error" *ngIf='!street.valid && (street.dirty || street.touched)'>Address is required</div>
+      </div>
+      
+      <br><br>
+      
+      <div class="form-group">
+        <div class="col-sm-3"><label>Unit/Apt #:</label></div>
+        <div class="col-sm-4">
+          <input type="text" name="unit" [(ngModel)]="user.unit" #unit="ngModel" class="form-control">
+        </div>
+      </div>
+      
+      <br><br>
+      
+      <div class="form-group">
+        <div class="col-sm-3"><label>*City:</label></div>
+        <div class="col-sm-4">
+          <input type="text" name="city" required [(ngModel)]="user.city" #city="ngModel" class="form-control">
+        </div>
+        <div class="col-sm-5 error" *ngIf='!city.valid && (city.dirty || city.touched)'>City is required</div>
+      </div>
+      
+      <br><br>
+      
+      <div class="form-group">
+      <div class="col-sm-3"><label>*State:</label></div>
+      <div class="col-sm-4">
+        <select name="state" required [(ngModel)]="user.state" #state="ngModel" class="form-control">
+          <option *ngFor="let s of states" [value]="s">{{s}}</option>
+        </select>
+      </div>
+      </div>
+      
+      <br><br>
+      
+      <div class="form-group">
+      <div class="col-sm-3"><label>*I'm feeling lucky:</label></div>
+      <div class="col-sm-4">
+        <input type="radio" name="lucky" value="true" [(ngModel)]="user.lucky" #lucky="ngModel" required>Yes
+        <input type="radio" name="lucky" value="false" [(ngModel)]="user.lucky" #lucky="ngModel" required>No
+      </div>
+      <div class="col-sm-5 error" *ngIf='!lucky.valid'>Gotta choose a feeling</div>
+      </div>
+      
+      <br><br>
+      
+      <input type="submit" [disabled]="!userForm.form.valid" class="btn btn-primary" value="Register">
+      
+    </form>
+  </div>
+</div>

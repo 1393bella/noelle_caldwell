@@ -17,3 +17,4 @@ Assignments completed in the MEAN stack (July 2017)
 * Angular
   * Dojo Mail
   * Retro Barcode Generator
+  * Registration
