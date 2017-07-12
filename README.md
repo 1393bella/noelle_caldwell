@@ -19,3 +19,4 @@ Assignments completed in the MEAN stack (July 2017)
   * Retro Barcode Generator
   * Registration
   * Quote Ranks
+  * GitHub Score

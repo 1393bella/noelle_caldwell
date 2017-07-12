@@ -1,0 +1,13 @@
+<div class="input">
+  <h1>{{title}}</h1>
+
+  <form (submit)="getScore()" #gitForm="ngForm">
+    <h3>Github Username: <input type="text" name="username" [(ngModel)]="username" required></h3>
+    <input type="submit" value="Calculate My Github Score" [disabled]="!gitForm.form.valid">
+  </form>
+</div>
+
+<div class="result">
+  <h1>Your Score: {{score}}</h1>
+  <h3 [class]="status[0]">{{status[1]}}</h3>
+</div>
