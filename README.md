@@ -18,3 +18,4 @@ Assignments completed in the MEAN stack (July 2017)
   * Dojo Mail
   * Retro Barcode Generator
   * Registration
+  * Quote Ranks

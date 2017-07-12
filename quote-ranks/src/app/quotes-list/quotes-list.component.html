@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+
+<div class="quote" *ngFor="let q of allQuotes">
+  <div class="q">
+  <p>"{{q.content}}"</p>
+  <p> - {{q.author}}</p>
+  </div>
+  <div class="votes">
+    <h2 *ngIf="q.votes >= 0">+{{q.votes}}</h2>
+    <h2 *ngIf="q.votes < 0">{{q.votes}}</h2>
+  </div>
+  <div class="voting">
+    <button class="up" (click)="voteUp(q.id)">Vote Up</button><br>
+    <button class="down" (click)="voteDown(q.id)">Vote Down</button><br>
+    <button class="delete" (click)="deleteQuote(q.id)">Delete</button><br>
+  </div>
+</div>

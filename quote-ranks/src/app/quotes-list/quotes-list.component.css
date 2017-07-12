@@ -1,0 +1,45 @@
+.quote {
+    border: 1px solid black;
+    padding-left: 10px;
+}
+
+.q {
+    display: inline-block;
+    vertical-align: top;
+    width: 70%;
+}
+
+.votes {
+    display: inline-block;
+    width: 10%;
+    vertical-align: top;
+}
+
+h2 {
+    padding-top: 15px;
+}
+.voting {
+    display: inline-block;
+    width: 15%;
+}
+
+.up, .down, .delete {
+    width: 60%;
+    text-align: center;
+    padding: 3px;
+    border-radius: 5px;
+    margin: 5px 5px;
+}
+
+.up {
+    background-color: lightseagreen;
+}
+
+.down {
+    background-color: lightcoral;
+}
+
+.delete {
+    background-color: black;
+    color: white;
+}
