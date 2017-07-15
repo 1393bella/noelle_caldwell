@@ -1,0 +1,18 @@
+*{
+    padding: 2%;
+}
+
+legend {
+    width: auto;
+    border: none;
+}
+
+fieldset {
+    border: 1px groove black !important;
+    margin: 1% 5%;
+}
+ 
+router-outlet {
+    padding: 0;
+    margin: 0;
+} 

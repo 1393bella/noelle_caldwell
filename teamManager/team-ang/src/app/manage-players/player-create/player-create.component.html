@@ -1,0 +1,26 @@
+<form (submit)="addPlayer()" #playerForm="ngForm">
+  <div class="row">
+    <div class="col-sm-2"><label>Player Name:</label></div>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" name="pname" [(ngModel)]="player.pname" #pname="ngModel" required minlength="2">
+    </div>
+    <div class="col-sm-5">
+    <span class="error" *ngIf="pname.errors && (pname.dirty || pname.touch)">
+      <span *ngIf="pname.errors.required">Name is required</span>
+      <span *ngIf="pname.errors.minlength">Name must be at least 2 characters in length</span></span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2"><label>Preferred Position:</label></div>
+    <div class="col-sm-5"> 
+      <select name="position" class="form-control" [(ngModel)]="player.preferred_position" #position="ngModel">
+        <option value=""></option>
+        <option value="Forward">Forward</option>
+        <option value="Goalkeeper">Goalkeeper</option>
+        <option value="Midfielder">Midfielder</option>
+      </select></div>
+  </div>
+  <div class="row">
+    <input type="submit" value="Add" class="btn btn-success" [disabled]="!playerForm.valid">
+  </div>
+</form>

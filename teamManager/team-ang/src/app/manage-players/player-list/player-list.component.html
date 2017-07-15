@@ -1,0 +1,12 @@
+<table class="table table-striped">
+  <tr>
+    <th>Player Name</th>
+    <th>Preferred Position</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let p of allPlayers">
+    <td>{{p.pname}}</td>
+    <td>{{p.preferred_position}}</td>
+    <td><button (click)="deletePlayer(p)" class="btn btn-danger">Delete</button></td>
+  </tr>
+</table>

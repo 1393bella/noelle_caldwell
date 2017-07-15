@@ -1,0 +1,28 @@
+router-outlet {
+    padding: 0;
+    margin: 0;
+}
+
+h4 {
+    display: inline;
+}
+
+.header {
+    display: inline-block;
+    width: 80%;
+    margin-left: 4%;
+}
+
+legend {
+    width: auto;
+    padding: 1%;
+    margin-left: 5px;
+    border: none;
+    font-size: 1.2em;
+}
+
+fieldset {
+    border: 1px groove black !important;
+     margin: 1% 3%; 
+     padding: 2%;
+}

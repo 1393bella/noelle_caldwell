@@ -1,0 +1,22 @@
+<h2>Player Status - Game {{game}}</h2>
+
+<h4>
+  <a (click)="game1()">Game 1</a> | 
+  <a (click)="game2()">Game 2</a> | 
+  <a (click)="game3()">Game 3</a>
+</h4>
+<br>
+<table class="table table-striped">
+  <tr>
+    <th>Player Name</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let p of players">
+    <td>{{p.pname}}</td>
+    <td>
+      <button (click)="playing(p)" [class]="(p.games[gameKey]=='playing')+'p'">Playing</button>
+      <button (click)="notPlaying(p)" [class]="(p.games[gameKey]=='not playing')+'n'">Not Playing</button>
+      <button (click)="undecided(p)" [class]="(p.games[gameKey]=='undecided')+'u'">Undecided</button>
+    </td>
+  </tr>
+</table>

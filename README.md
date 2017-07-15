@@ -20,3 +20,5 @@ Assignments completed in the MEAN stack (July 2017)
   * Registration
   * Quote Ranks
   * GitHub Score
+* Full Stack
+  * Team Manager
