@@ -1,0 +1,64 @@
+<div class="create">
+<h3>Create Listing</h3>
+  <div class="bike">
+    <form (submit)="addBike(); bikeForm.reset()" #bikeForm="ngForm">
+      <div class="col-sm-3">
+        <img [src]="newBike.image" alt="click to add photo (required)" (click)="uploadPhoto()">
+      </div>
+      <div class="col-sm-7">
+        <div class="form-group">
+          <label>Title</label> <span class="error" *ngIf="title.errors && (title.dirty || title.touched)"> *required</span>
+          <input type="text" name="title" class="form-control" [(ngModel)]="newBike.title" #title="ngModel" required>
+          <label>Description</label> <span class="error" *ngIf="description.errors && (description.dirty || description.touched)">
+            <span *ngIf="description.errors.required"> *required</span><span *ngIf="description.errors.maxlength"> *cannot exceed 200 characters</span></span>
+          <textarea class="form-control" rows="3" name="desc" [(ngModel)]="newBike.description" #description="ngModel" required maxlength="200"></textarea>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label>Price</label> <span class="error" *ngIf="price.errors && (price.dirty || price.touched)">
+            <span *ngIf="price.errors.required"> *required</span><span *ngIf="!price.errors.required && price.errors.minValue">*at least $1</span></span>
+          <input type="number" class="form-control" name="price" [(ngModel)]="newBike.price" #price="ngModel" required minValue="1">
+          <label>Location</label> <span class="error" *ngIf="location.errors && (location.dirty || location.touched)"> *required</span>
+          <input type="text" class="form-control" name="location" [(ngModel)]="newBike.location" #location="ngModel" required>
+          <input type="submit" value="Create" class="btn btn-success" [disabled]="!bikeForm.form.valid || !hasImage">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<hr>
+<div class="edits">
+<h3>Edit/Delete Listings</h3>
+  <div class="bikes" *ngFor="let b of myBikes; let idx = index">
+    <form (submit)="updateBike(idx)" #bikeForm="ngForm">
+      <div class="col-sm-3">
+        <img [src]="b.image" alt="click to add photo (required)" (click)="editPhoto(idx)">
+      </div>
+      <div class="col-sm-7">
+        <div class="form-group">
+          <label>Title</label> 
+           <span class="error" *ngIf="title.errors && (title.dirty || title.touched)"> *required</span> 
+          <input type="text" name="title" class="form-control" [(ngModel)]="b.title" #title="ngModel" required>
+          <label>Description</label> 
+           <span class="error" *ngIf="description.errors && (description.dirty || description.touched)"> 
+           <span *ngIf="description.errors.required"> *required</span><span *ngIf="description.errors.maxlength"> *cannot exceed 200 characters</span></span> 
+          <textarea class="form-control" rows="3" name="desc" [(ngModel)]="b.description" #description="ngModel" required maxlength="200"></textarea>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label>Price</label>
+            <span class="error" *ngIf="price.errors && (price.dirty || price.touched)"> 
+            <span *ngIf="price.errors.required"> *required</span><span *ngIf="priceTooLow">*at least $1</span></span> 
+          <input type="number" class="form-control" name="price" [(ngModel)]="b.price" #price="ngModel" required minValue="1">
+          <label>Location</label> 
+            <span class="error" *ngIf="location.errors && (location.dirty || location.touched)"> *required</span> 
+          <input type="text" class="form-control" name="location" [(ngModel)]="b.location" #location="ngModel" required>
+          <input type="submit" value="Update" class="btn btn-primary btn-half" [disabled]="!bikeForm.form.valid || b.image == '' || b.image == null"> 
+          <button class="btn btn-danger btn-half" (click)="deleteBike(idx)">Delete</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

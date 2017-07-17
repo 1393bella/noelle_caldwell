@@ -1,0 +1,50 @@
+h3 {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.create {
+    width: 95%;
+    margin: auto;
+    background-color: lightgray;
+    border: 1px solid black;
+}
+
+.edits {
+    width: 95%;
+    margin: auto;
+    height: 400px;
+    overflow-y: scroll;
+    background-color: lightgray;
+    border: 1px solid black;
+}
+
+    .bike, .bikes {
+        width: 95%;
+        height: 200px;
+        padding: 1%;
+        border: 1px solid black;
+        background-color: white;
+        margin: 10px auto;
+        height: 200px;
+    }
+
+    .btn {
+        margin-top: 5%;
+        width: 99%;    
+    }
+
+    .btn-half {
+        width: 48%;
+        display: inline-block;
+    }
+
+img {
+    border: 1px solid black;
+    width: 220px;
+    height: 160px;
+}
+
+.error {
+    color: red;
+}

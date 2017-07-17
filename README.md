@@ -22,3 +22,4 @@ Assignments completed in the MEAN stack (July 2017)
   * GitHub Score
 * Full Stack
   * Team Manager
+  * Bicycle Marketplace

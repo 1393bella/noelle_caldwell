@@ -1,0 +1,48 @@
+.bike {
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid black;
+    background-color: lightgray;
+    padding: 1%;
+    height: 200px;
+    }
+    img {
+        border: 1px solid black;
+        width: 220px;
+        height: 160px;
+    }
+    h3 {
+        color: teal;
+        margin-left: 125px;
+    }
+
+.login, .register {
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid black;
+    margin: auto;
+    padding: 1%;
+}
+
+.login {
+    width: 30%;
+    margin-left: 10%;
+}
+
+.register {
+    width: 40%;
+    margin-left: 9%; 
+}
+
+.error {
+    color: red;
+}
+
+.col-sm-4 {
+    text-align: right;
+}
+
+.btn {
+    display: inline-block;
+    margin-left: 40%;
+}
